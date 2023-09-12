@@ -92,26 +92,4 @@ class Reviewer(Mentor):
         
     def __str__(self):
         return f'Имя: {self.name}\nФамилия: {self.surname}'
-    
 
-def student_course_average_rate(student_list, course):
-    sum_average = 0
-    student_count = 0
-    for student in student_list:        
-        if course in student.grades:
-            sum_average += student.grades[course]
-            student_count += 1
-    return sum_average / student_count
-
-def lecturer_course_average_rate(lecturer_list, course):
-    sum_average = 0
-    lecturer_count = 0
-    for lecturer in lecturer_list:        
-        if course in lecturer.grades:
-            sum_average += lecturer.grades[course]
-            lecturer_count += 1
-    return sum_average / lecturer_count
-
-
-
-    
