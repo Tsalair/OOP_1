@@ -7,8 +7,9 @@ class Student:
         self.courses_in_progress = []
         self.grades = {}
 
-    def add_courses(self, course_name):
+    def add_finished_courses(self, course_name):
         self.finished_courses.append(course_name)
+        return self.finished_courses
 
     def rate_lecturer(self, lecturer, course, grade):
         if isinstance(lecturer, Lecturer) and course in self.courses_in_progress and course in lecturer.courses_attached:
@@ -16,6 +17,7 @@ class Student:
                 lecturer.grades[course] += [grade]
             else:
                 lecturer.grades[course] = [grade]
+            return lecturer.grades
         else:
             return 'Ошибка'
 
@@ -87,6 +89,7 @@ class Reviewer(Mentor):
                 student.grades[course] += [grade]
             else:
                 student.grades[course] = [grade]
+            return student.grades
         else:
             return 'Ошибка'
         
